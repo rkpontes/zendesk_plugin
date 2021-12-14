@@ -130,7 +130,6 @@ class ZendeskPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
         .withOfflineFormEnabled(isOfflineFormEnabled)
         .withPreChatFormEnabled(isPreChatFormEnabled)
         .withChatMenuActions(ChatMenuAction.END_CHAT)
-        .primaryColor(primaryColor)
 
     val chatConfiguration = chatConfigurationBuilder.build()
 

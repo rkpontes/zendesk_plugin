@@ -58,7 +58,7 @@ class Zendesk {
     bool isOfflineFormEnabled = true,
   }) async {
     await _channel.invokeMethod<void>('startChat', {
-      'titlePage': titlePage,
+      'titlePage': titlePage ?? 'Chat',
       'primaryColor': primaryColor?.value,
       'isPreChatFormEnabled': isPreChatFormEnabled,
       'isAgentAvailabilityEnabled': isAgentAvailabilityEnabled,
