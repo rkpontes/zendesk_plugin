@@ -117,6 +117,7 @@ class ZendeskPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
   }
 
   fun startChat(call: MethodCall) {
+    val primaryColor = call.argument<int>("primaryColor") ?: 4281219990
     val isPreChatFormEnabled = call.argument<Boolean>("isPreChatFormEnabled") ?: true
     val isAgentAvailabilityEnabled = call.argument<Boolean>("isAgentAvailabilityEnabled") ?: true
     val isChatTranscriptPromptEnabled = call.argument<Boolean>("isChatTranscriptPromptEnabled") ?: true
@@ -128,6 +129,7 @@ class ZendeskPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
         .withOfflineFormEnabled(isOfflineFormEnabled)
         .withPreChatFormEnabled(isPreChatFormEnabled)
         .withChatMenuActions(ChatMenuAction.END_CHAT)
+        .primaryColor(primaryColor)
 
     val chatConfiguration = chatConfigurationBuilder.build()
 
