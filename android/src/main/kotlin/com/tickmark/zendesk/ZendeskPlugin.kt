@@ -117,6 +117,7 @@ class ZendeskPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
   }
 
   fun startChat(call: MethodCall) {
+    val titlePage = call.argument<String>("titlePage") ?: "Chat"
     val primaryColor = call.argument<int>("primaryColor") ?: 4281219990
     val isPreChatFormEnabled = call.argument<Boolean>("isPreChatFormEnabled") ?: true
     val isAgentAvailabilityEnabled = call.argument<Boolean>("isAgentAvailabilityEnabled") ?: true
@@ -134,7 +135,7 @@ class ZendeskPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
     val chatConfiguration = chatConfigurationBuilder.build()
 
     MessagingActivity.builder()
-    .withToolbarTitle("Contact Us")
+    .withToolbarTitle(titlePage)
     .withEngines(ChatEngine.engine())
     .show(activity, chatConfiguration)
   }
