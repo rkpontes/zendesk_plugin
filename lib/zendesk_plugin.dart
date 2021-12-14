@@ -50,6 +50,7 @@ class Zendesk {
   ///
   /// If [isOfflineFormEnabled] is true, the offline form will be shown to the user.
   static Future<void> startChat({
+    String? titlePage,
     Color? primaryColor,
     bool isPreChatFormEnabled = true,
     bool isAgentAvailabilityEnabled = true,
@@ -57,6 +58,7 @@ class Zendesk {
     bool isOfflineFormEnabled = true,
   }) async {
     await _channel.invokeMethod<void>('startChat', {
+      'titlePage': titlePage,
       'primaryColor': primaryColor?.value,
       'isPreChatFormEnabled': isPreChatFormEnabled,
       'isAgentAvailabilityEnabled': isAgentAvailabilityEnabled,
