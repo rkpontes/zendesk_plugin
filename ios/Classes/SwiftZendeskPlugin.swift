@@ -102,7 +102,7 @@ public class SwiftZendeskPlugin: NSObject, FlutterPlugin {
         // Build view controller
         let chatEngine = try ChatEngine.engine()
         let viewController = try Messaging.instance.buildUI(engines: [chatEngine], configs: [messagingConfiguration, chatConfiguration])
-        viewController.title = "Contact Us"
+        viewController.title = dictionary["titlePage"] as? String ?? "Chat"
         
         // Present view controller
         let rootViewController = UIApplication.shared.windows.filter({ (w) -> Bool in
